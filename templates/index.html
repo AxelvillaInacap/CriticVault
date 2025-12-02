@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CriticVault | Mis Reseñas</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #e2e8f0;
+            --accent: #3b82f6;
+            --success: #22c55e;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 2rem;
+        }
+        h1 { text-align: center; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .rating {
+            float: right;
+            font-weight: bold;
+            color: var(--success);
+            font-size: 1.2rem;
+        }
+        .date { display: block; margin-top: 15px; font-size: 0.8rem; color: #94a3b8; }
+    </style>
+</head>
+<body>
+
+    <h1>CriticVault <span style="font-size:1rem; color: #64748b">Dashboard</span></h1>
+    
+    <div id="app" class="container">
+        <p style="text-align:center; width:100%">Cargando datos del motor...</p>
+    </div>
+
+    <script>
+        // Esta es la MAGIA. Javascript conecta tu Frontend con tu Backend.
+        async function cargarResenas() {
+            try {
+                // 1. Pedimos los datos a TU API
+                const response = await fetch('/api/v1/reviews/');
+                const data = await response.json();
+                
+                const contenedor = document.getElementById('app');
+                contenedor.innerHTML = ''; // Limpiar
+
+                // 2. Por cada reseña que llegue, creamos una tarjeta HTML
+                data.forEach(review => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <div>
+                            <span class="badge">${review.category}</span>
+                            <span class="rating">★ ${review.rating}/10</span>
+                        </div>
+                        <h2>${review.title}</h2>
+                        <p>${review.content}</p>
+                        <small class="date">ID: ${review.id.substring(0,8)}...</small>
+                    `;
+                    contenedor.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        // Ejecutar al cargar la página
+        cargarResenas();
+    </script>
+</body>
+</html>
