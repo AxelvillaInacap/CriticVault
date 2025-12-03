@@ -2,7 +2,7 @@
 
 Plataforma de gestión de reseñas y críticas (Tech, Gaming, Cine, Audio) construida con una arquitectura escalable y moderna. Este proyecto demuestra la implementación de una API RESTful completa consumida por un cliente frontend asíncrono.
 
-![Dashboard Preview](screenshots/dashboard-preview.jpg)
+![Dashboard Preview](screenshots/dashboard-preview.png.jpeg)
 
 
 ## 🚀 Tecnologías Clave
