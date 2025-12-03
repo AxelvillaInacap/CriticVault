@@ -4,7 +4,6 @@ Plataforma de gestión de reseñas y críticas (Tech, Gaming, Cine, Audio) const
 
 ![Dashboard Preview](screenshots/dashboard-preview.png.jpeg)
 
-
 ## 🚀 Tecnologías Clave
 
 * **Backend:** Python 3, Django 5.
@@ -25,7 +24,7 @@ Plataforma de gestión de reseñas y críticas (Tech, Gaming, Cine, Audio) const
 
 1.  Clonar el repositorio:
     ```bash
-    git clone [https://github.com/TU_USUARIO/CriticVault.git](https://github.com/TU_USUARIO/CriticVault.git)
+    git clone [https://github.com/AxelvillaInacap/CriticVault.git](https://github.com/AxelvillaInacap/CriticVault.git)
     cd CriticVault
     ```
 
@@ -43,4 +42,4 @@ Plataforma de gestión de reseñas y críticas (Tech, Gaming, Cine, Audio) const
     ```
 
 ---
-Hecho con 💙 por [Tu Nombre]
+Hecho con 💙 por Axel Villa
